@@ -23,3 +23,10 @@ To enter the password, use the command
 ```Bash
 ansible-playbook -i hosts.ini user.yml -K
 ```
+Substitute an inventory folder
+```Bash
+ansible-playbook -i demo-server user.yml -K
+```
+```Bash
+ansible-playbook -i demo-server user.yml -K --extra-vars "user=dmitrytyt"
+```

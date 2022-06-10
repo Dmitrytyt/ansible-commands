@@ -4,6 +4,7 @@
   tasks:
   - name: Create user
     user:
-      name: dmitrytyt
+      name: "{{ user }}"
       state: present
     become: true
+    
