@@ -2,12 +2,27 @@
 - name: user
   hosts: demo
   tasks:
-  - name: Create user
-    user:
-      name: "{{ user }}"
-      state: present
+  - name: Preconfig block
+    block:
+      - name: Create user
+        vars:
+          user: dmitrytyt
+        user:
+          name: "{{ user }}"
+          state: present
+        register: error
+      - name: Install curl
+        apt:
+          name: curl
+          update-cache: yes
     become: true
-    register: out
-  - debug:
-      var: out
+    when: ansible_facts['distribution'] == 'Ubuntu'
+    rescue:
+      - name: Some error print
+        debug:
+          var: error
+    always:
+      - name: Reboot
+        debug:
+          msg: "Rebooting"
     
