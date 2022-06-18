@@ -30,3 +30,6 @@ ansible-playbook -i demo-server user.yml -K
 ```Bash
 ansible-playbook -i demo-server user.yml -K --extra-vars "user=dmitrytyt"
 ```
+```Bash
+ansible-playbook -i demo-server config.yml -K
+```
