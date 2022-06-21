@@ -33,3 +33,17 @@ ansible-playbook -i demo-server user.yml -K --extra-vars "user=dmitrytyt"
 ```Bash
 ansible-playbook -i demo-server config.yml -K
 ```
+Linting
+```Bash
+pip3 install "ansible-lint"
+```
+```Bash
+ansible-lint config.yml
+```
+Pre-commit
+```Bash
+pip3 install "pre-commit"
+```
+```Bash
+pre-commit install
+```
